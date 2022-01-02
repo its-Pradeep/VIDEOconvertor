@@ -17,6 +17,7 @@ from telethon.errors.rpcerrorlist import MessageNotModifiedError
 from telethon.tl.types import DocumentAttributeVideo
 from main.plugins.actions import LOG_START, LOG_END
 
+@Drone.on(events.NewMessage(incoming=True, pattern="/compress"))
 async def compress(event, msg):
     Drone = event.client
     edit = await Drone.send_message(event.chat_id, "Trying to process.", reply_to=msg.id)
