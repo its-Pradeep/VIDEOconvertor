@@ -18,7 +18,7 @@ from telethon.tl.types import DocumentAttributeVideo
 from main.plugins.actions import LOG_START, LOG_END
 
 @Drone.on(events.NewMessage(incoming=True, pattern="/compress"))
-async def compress(event, msg):
+async def compress(event):
     Drone = event.client
     edit = await Drone.send_message(event.chat_id, "Trying to process.", reply_to=msg.id)
     new_name = "out_" + dt.now().isoformat("_", "seconds")
